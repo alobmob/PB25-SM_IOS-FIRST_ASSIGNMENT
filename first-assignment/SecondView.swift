@@ -11,6 +11,7 @@ struct SecondView: View {
 
     @Binding var surname: String
     @State private var modifiedSurname: String = ""
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         VStack(spacing: 20) {
@@ -24,6 +25,7 @@ struct SecondView: View {
 
             Button("Confirm and go back") {
                 surname = modifiedSurname
+                dismiss()
             }
 
             Text("Current surname: \(surname)")
